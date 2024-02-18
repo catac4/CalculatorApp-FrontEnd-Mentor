@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <link rel="stylesheet" href="css/styles.css">
+
+  <title>Frontend Mentor | Calculator app</title>
+
+</head>
+<body>
+  <main class="content">
+    <section class="calculator">
+      <div class="head calculator__head">
+        <h1 class="head__tittle">calc</h1>
+        <div class="slider-box calculator__slider-box">
+          <p class="slider-box__text">THEME</p>
+          <div class="slider slider-box__slider">
+            <div class="slider__button"></div>
+            <div class="slider__button"></div>
+            <div class="slider__button"></div>
+            <div class="slider__circle"></div>
+          </div>
+        </div>
+      </div>
+      <div class="output calculator__output">
+        <input type="text" class="forms output__show" value="0">
+        <input type="text" class="forms output__text" value="0">
+      </div>      
+      <div class="buttons calculator__buttons">
+        <input type="button" value="7" class="buttons__item">
+        <input type="button" value="8" class="buttons__item">
+        <input type="button" value="9" class="buttons__item">
+        <input type="button" value="DEL" class="buttons__item buttons__item--theme-2 buttons__item--small-text">
+        <input type="button" value="4" class="buttons__item">
+        <input type="button" value="5" class="buttons__item">
+        <input type="button" value="6" class="buttons__item">
+        <input type="button" value="+" class="buttons__item">
+        <input type="button" value="1" class="buttons__item">
+        <input type="button" value="2" class="buttons__item">
+        <input type="button" value="3" class="buttons__item">
+        <input type="button" value="-" class="buttons__item">
+        <input type="button" value="." class="buttons__item">
+        <input type="button" value="0" class="buttons__item">
+        <input type="button" value="/" class="buttons__item">
+        <input type="button" value="x" class="buttons__item">
+        <input type="button" value="RESET" class="buttons__item buttons__item--large buttons__item--small-text buttons__item--theme-2">
+        <input type="button" value="=" class="buttons__item buttons__item--large buttons__item--small-text buttons__item--theme-3">
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+@use 'variables' as v;
+
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+@function deleteType($val){
+    @return $val/($val*0 + 1);
+};
+
+@function toRem($val){
+    @return #{deleteType($val)/deleteType(v.$Font-size)}rem;
+};
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    font-size: v.$Font-size;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    transition: background-color 0.1s, color 0.1s;
+}
+
+:root{
+    --bg-col-1: #{v.$Very-dark-desaturated-blue};
+    --bg-col-2: #{v.$Very-dark-desaturated-blue-2};
+    --bg-col-3: #{v.$Very-dark-desaturated-blue-3};
+
+    --tx-col1: #{v.$Very-dark-grayish-blue};
+    --tx-col2: #{v.$White};
+    --tx-col3: #{v.$White};
+    --tx-col4: #{v.$White};
+
+    --key1-col-1: #{v.$Desaturated-dark-blue};
+    --key1-col-2: #{v.$Desaturated-dark-blue-2};
+    --key1-light-1: #{v.$key11-light-1};
+    --key1-light-2: #{v.$key11-light-2};
+
+
+    --key2-col-1: #{v.$Red};
+    --key2-col-2: #{v.$Dark-red};
+    --key2-light-1: #{v.$key12-light-1};
+    --key2-light-2: #{v.$key12-light-2};
+
+    --key3-col-1: #{v.$Light-grayish-orange};
+    --key3-col-2: #{v.$Grayish-orange};
+    --key3-light-1: #{v.$key13-light-1};
+    --key3-light-2: #{v.$key13-light-2};
+}
+
+.calculator__show{
+    text-align: right;
+}
+
+html[data-theme ="col2"]{
+
+    --bg-col-1: #{v.$Light-gray};
+    --bg-col-2: #{v.$Grayish-red};
+    --bg-col-3: #{v.$Very-light-gray};
+
+    --tx-col1: #{v.$Very-dark-grayish-yellow};
+    --tx-col2: #{v.$White};
+    --tx-col3: #{v.$White};
+    --tx-col4: #{v.$Very-dark-grayish-yellow};
+
+    --key1-col-1: #{v.$Dark-moderate-cyan};
+    --key1-col-2: #{v.$Very-dark-cyan};
+    --key1-light-1: #{v.$key21-light-1};
+    --key1-light-2: #{v.$key21-light-2};
+
+    --key2-col-1: #{v.$Orange};
+    --key2-col-2: #{v.$Dark-orange};
+    --key2-light-1: #{v.$key22-light-1};
+    --key2-light-2: #{v.$key22-light-2};
+
+    --key3-col-1: #{v.$Light-grayish-yellow};
+    --key3-col-2: #{v.$Dark-grayish-orange};
+    --key3-light-1: #{v.$key23-light-1};
+    --key3-light-2: #{v.$key23-light-2};
+
+}
+
+html[data-theme ="col3"]{
+
+    --bg-col-1: #{v.$Very-dark-violet};
+    --bg-col-2: #{v.$Very-dark-violet-2};
+    --bg-col-3: #{v.$Very-dark-violet-2};
+
+    --tx-col1: #{v.$Light-yellow};
+    --tx-col2: #{v.$Light-yellow};
+    --tx-col3: #{v.$Very-dark-blue};
+    --tx-col4: #{v.$Light-yellow};
+
+    --key1-col-1: #{v.$Dark-violet};
+    --key1-col-2: #{v.$Vivid-magenta};
+    --key1-light-1: #{v.$key31-light-1};
+    --key1-light-2: #{v.$key31-light-2};
+
+    --key2-col-1: #{v.$Pure-cyan};
+    --key2-col-2: #{v.$Soft-cyan};
+    --key2-light-1: #{v.$key32-light-1};
+    --key2-light-2: #{v.$key32-light-2};
+
+    --key3-col-1: #{v.$Very-dark-violet-3};
+    --key3-col-2: #{v.$Dark-magenta};
+    --key3-light-1: #{v.$key33-light-1};
+    --key3-light-2: #{v.$key33-light-2};
+}
+
+.content{
+    counter-reset: themes;
+    transition: background-color;
+    background-color: var(--bg-col-1);
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    @include v.forCell(){
+        align-items: start;
+    }
+}
+
+.head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__tittle{
+        padding: 0px toRem(8px);
+        color: var(--tx-col4);
+    }
+}
+
+.calculator{
+    width: min(542px,87%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__head{
+        margin: toRem(32px) 0px;
+    }
+    &__buttons{
+        column-gap: toRem(24px);
+        row-gap: toRem(28px);
+        padding: toRem(36px) toRem(32px);
+        margin: toRem(24px) 0;
+        @include v.forCell(){
+            column-gap: toRem(14px);
+            row-gap: toRem(14px);   
+            padding: toRem(24px) toRem(24px);
+        };
+    }
+    &__output{
+        text-align: right;
+        background-color: var(--bg-col-3);
+        padding: toRem(32px) toRem(32px);
+        border-radius: 10px;
+        @include v.forCell(){
+            padding: toRem(24px) toRem(24px);
+        }
+    }
+    &__slider-box{
+        width: 140px;
+    }
+}
+
+.forms{
+    width: 100%;
+    text-align: right;
+    background-color: var(--bg-col-3);
+    color: var(--tx-col4);
+}
+
+.output{
+    &__text{
+        font-size: toRem(48px);
+        @include v.forCell(){
+            font-size: toRem(40px);
+        }
+    }
+    &__show{
+        font-size: toRem(20px);
+        @include v.forCell(){
+            font-size: toRem(14px);
+        }
+    }
+}
+
+.slider-box{
+    height: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__text{
+        letter-spacing: 1px;
+        font-size: toRem(12px);
+        color: var(--tx-col4);
+    }
+}
+
+
+.slider{
+    background-color: var(--bg-col-2);
+    display: flex;
+    justify-content: space-between;
+    width: 70px;
+    position: relative;
+    height: 100%;
+    border-radius: 50px;
+    padding: 0px toRem(6px);
+    &__button{
+        height: 100%;
+        width: calc(100%/3);
+        position: relative;
+        counter-increment: themes;
+        &:hover{
+            cursor: pointer;
+        }
+        &::after{
+            display: inline;
+            font-size: toRem(14px);
+            content: counter(themes);
+            top: -80%;
+            height: 100%;
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            color: var(--tx-col4);
+        }
+    }
+    &__circle{
+        background-color: var(--key2-col-1);
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        height: 60%;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        transition: left 0.2s ease-in-out;
+        &:hover{
+            cursor: pointer;
+            background-color: makeLighter(v.$Red);
+        }
+    }
+}
+
+.buttons{
+    display: grid;
+    border-radius: 10px;
+    grid-template-columns: repeat(4,minmax(0px,1fr));
+    grid-template-rows: repeat(5,1fr);
+    background-color: var(--bg-col-2);
+    &__item{
+        color: var(--tx-col1);
+        position: relative;
+        text-align: center;
+        font-size: toRem(40px);
+        background-color: var(--key3-col-1);
+        box-shadow: 0px 4px var(--key3-col-2);
+        border-radius: 10px;
+        padding: toRem(8px) 0px toRem(4px);
+        transition: background-color 0.1s;
+        @include v.forCell(){
+            font-size: toRem(32px);
+            padding: toRem(15px) 0px toRem(11px);
+        };
+        &:hover{
+            background-color: var(--key3-light-1);
+            box-shadow: 0px 4px var(--key3-light-2);
+            cursor: pointer;
+        }
+        &:active{
+            top: 4px;
+            box-shadow: none !important;
+        }
+        &--large{
+            grid-column: span 2;
+        }
+        &--small-text{
+            font-size: toRem(27px);
+            @include v.forCell(){
+                font-size: toRem(20px);
+            };
+        }
+        &--theme-2{
+            color: var(--tx-col2);
+            background-color: var(--key1-col-1);
+            box-shadow: 0px 5px var(--key1-col-2);
+            &:hover{
+                background-color: var(--key1-light-1);
+                box-shadow: 0px 5px var(--key1-light-2);
+            }
+            
+        }
+        &--theme-3{
+            color: var(--tx-col3);
+            background-color: var(--key2-col-1);
+            box-shadow: 0px 5px var(--key2-col-2);
+            &:hover{
+                background-color: var(--key2-light-1);
+                box-shadow: 0px 5px var(--key2-light-2);
+            }
+        }
+    }
+}
