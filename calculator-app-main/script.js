@@ -119,7 +119,7 @@ Array.from(buttonsCalculator).forEach(btt => {
         }else{
             switch(curr){
                 case '.':
-                    if(!isDecimal(val.value)){
+                    if(!isDecimal(val.value) || finishOperation ){
                         if(finishOperation){
                             addFirstValue('.0');
                         }else{
