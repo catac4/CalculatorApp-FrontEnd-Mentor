@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Tip calculator app</title>
+
+  <link rel="stylesheet" href="styles/style.css">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <main class="content">
+    <div class="tittle">
+      <p class="tittle__text">SPLI</p>
+      <p class="tittle__text">TTER</p>
+    </div>
+    <div class="calculator">
+      <div class="options calculator__options">
+        <div class="amount options__amount"> 
+          <div class="options__info">
+            <label class="options__text" for="dollar">Bill</label>
+            <p class="options__message"></p>
+          </div>
+          <input class="options__input" type="text" name="dollar" id="dollar" placeholder="0">
+          <img src="images/icon-dollar.svg" alt="dollar" class="options__img">
+        </div>
+        <div class="amount options__amount">
+          <p class="options__text">Select Tip %</p>
+          <div class="percentajes options__percentajes">
+            <input class="button percentajes__button" type="button" value="5%">
+            <input class="button percentajes__button" type="button" value="10%">
+            <input class="button percentajes__button" type="button" value="15%">
+            <input class="button percentajes__button" type="button" value="25%">
+            <input class="button percentajes__button" type="button" value="50%">
+            <input class="options__input options__input--center" type="text" name="" id="" placeholder="Custom">
+          </div>
+        </div>
+        <div class="amount options__amount">
+          <div class="options__info">
+            <label class="options__text" for="person">Number of People</label>
+            <p class="options__message"></p>
+          </div>
+          <input class="options__input" type="text" name="person" id="person" placeholder="0">
+          <img src="images/icon-person.svg" alt="person" class="options__img">
+        </div>
+      </div>
+      <div class="results calculator__results">
+        <div class="data">
+          <div class="box results__box">
+            <div class="information">
+              <p class="information__name">Tip Amount</p>
+              <p class="information__type">/ person</p>
+            </div>
+            <input type="text" name="" id="" class="box__value" value="$0.00" readonly>
+          </div>
+          <div class="box results__box">
+            <div class="information">
+              <p class="information__name">Total</p>
+              <p class="information__type">/ person</p>
+            </div>
+            <input type="text" name="" id="" class="box__value" value="$0.00" readonly>
+          </div>
+        </div>
+        <input class="button button--green button--small" type="button" value="Reset">
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
