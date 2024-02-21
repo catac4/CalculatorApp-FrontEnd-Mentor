@@ -1,0 +1,234 @@
+@use 'variables' as v;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@function deleteType($val){
+    @return $val/($val*0 +1);
+}
+
+@function toRem($val){
+    @return #{deleteType($val)/deleteType(v.$Font-size)}rem;
+}
+
+.tittle{
+    margin-bottom: toRem(80px);
+    &__text{
+        letter-spacing: toRem(8px);
+        font-size: toRem(26px);
+    }
+    @include v.forCell(){
+        margin: toRem(40px) 0;
+    }
+}
+
+*{
+    font-family: "Space Mono", monospace;
+    font-size: v.$Font-size;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: v.$Dark-grayish-cyan;
+    outline: none;
+    border: none;
+    @include v.forTablet(){
+        font-size: 20px;
+    }
+    @include v.forCell(){
+        font-size: 22px;
+    }
+}
+
+.content{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: v.$Light-grayish-cyan;
+    @include v.forCell(){
+        justify-content: start;
+    }
+}
+
+.percentajes{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    grid-template-rows: repeat(2,minmax(0,1fr));
+    gap: toRem(16px);
+    @include v.forCell(){
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+}
+
+.calculator{
+    border: 1px solid v.$Very-light-grayish-cyan;
+    box-shadow: 0px 10px 80px -30px v.$Grayish-cyan;
+    display: flex;
+    border-radius: 20px;
+    background-color: v.$White;
+    width: min(920px,95%);
+    &__options{
+        margin: toRem(36px) toRem(16px) toRem(36px) toRem(48px);
+        width: 47%;
+        @include v.forCell(){
+            margin: 0;
+            width: 83%;
+            margin: toRem(20px) 0;
+        }
+    }
+    &__results{
+        margin: toRem(32px);
+        width: 50%;
+        @include v.forCell(){
+            margin: toRem(16px) 0;
+            width: 88%;
+        }
+    }
+    @include v.forCell(){
+        min-height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 30px 30px 0px 0px;
+    }
+}
+
+.options{
+    background-color: v.$White;
+    &__input{
+        background-color: v.$Very-light-grayish-cyan;
+        text-align: right;
+        border-radius: 5px;
+        width: 100%;
+        padding: toRem(8px) toRem(12px);
+        &--center{
+            text-align: center;
+        }
+        &::placeholder{
+            color: v.$Very-dark-cyan;
+        }
+        &--select{
+            outline: 3px solid v.$Strong-cyan;
+        }
+        &:focus{
+            outline: 3px solid v.$Strong-cyan;
+        }
+        &--error{
+            outline: 3px solid red;
+            &:focus{
+                outline: 3px solid red;
+            }
+        }
+    }
+    &__info{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: toRem(12px);
+    }
+    &__message{
+        color: red;
+        font-size: toRem(16px);
+    }
+    &__img{
+        position: absolute;
+        left: 12px;
+        top: calc(50% + 8px);
+    }
+    &__text{
+        font-size: toRem(16px);  
+    }
+    &__amount{
+        position: relative;
+        padding: toRem(16px) 0px;
+    }
+}
+
+.amount{
+    display: flex;
+    flex-direction: column;
+}
+
+.results{
+    background-color: v.$Very-dark-cyan;
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &__box{
+        padding: toRem(12px) 0;
+        @include v.forCell(){
+            padding: 0;
+            margin: toRem(12px) 0 toRem(16px);
+        }
+    }
+    @include v.forCell(){
+        padding: toRem(24px) toRem(28px);
+        height: 256px;
+    }
+}
+
+
+.box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__value{
+        text-align: right;
+        width: 60%;
+        background-color: transparent;
+        font-size: toRem(48px);
+        color: v.$Strong-cyan;
+        @include v.forCell(){
+            font-size: toRem(40px);
+        }
+    }
+}
+
+.information{
+    &__name{
+        color: v.$White;
+        font-size: toRem(16px);
+    }
+    &__type{
+        color: v.$Grayish-cyan;
+        font-size: toRem(12px);
+    }
+}
+
+.button{
+    border-radius: 5px;
+    text-align: center;
+    padding: toRem(8px);
+    text-transform: uppercase;
+    background-color: v.$Very-dark-cyan;
+    color: v.$White;
+    &--small{
+        font-size: toRem(20px);
+    }
+    &:hover{
+        cursor: pointer;
+        color: v.$Very-dark-cyan;
+        background-color: v.$Light-grayish-cyan;
+    }
+    &--green{
+        background-color: v.$Grayish-cyan;
+        color: v.$Dark-grayish-cyan;
+        &:hover{
+            background-color: v.$Strong-cyan;
+            color: v.$Very-dark-cyan;
+        }
+    }
+    &--select{
+        background-color: v.$Strong-cyan;
+        color: v.$Very-dark-cyan;
+        &:hover{
+            background-color: v.$Strong-cyan;
+            color: v.$Very-dark-cyan;
+        }
+    }
+}
