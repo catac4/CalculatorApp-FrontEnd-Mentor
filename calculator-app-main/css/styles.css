@@ -1,0 +1,293 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  font-size: 32px;
+  font-family: "League Spartan", sans-serif;
+  font-weight: 700;
+  transition: background-color 0.1s, color 0.1s;
+}
+
+:root {
+  --bg-col-1: hsl(222, 26%, 31%);
+  --bg-col-2: hsl(223, 31%, 20%);
+  --bg-col-3: hsl(224, 36%, 15%);
+  --tx-col1: hsl(221, 14%, 31%);
+  --tx-col2: hsl(0, 0%, 100%);
+  --tx-col3: hsl(0, 0%, 100%);
+  --tx-col4: hsl(0, 0%, 100%);
+  --key1-col-1: hsl(225, 21%, 49%);
+  --key1-col-2: hsl(224, 28%, 35%);
+  --key1-light-1: hsl(225, 21%, 61%);
+  --key1-light-2: hsl(224, 28%, 47%);
+  --key2-col-1: hsl(6, 63%, 50%);
+  --key2-col-2: hsl(6, 70%, 34%);
+  --key2-light-1: hsl(6, 63%, 62%);
+  --key2-light-2: hsl(6, 70%, 46%);
+  --key3-col-1: hsl(30, 25%, 89%);
+  --key3-col-2: hsl(28, 16%, 65%);
+  --key3-light-1: hsl(30, 25%, 100%);
+  --key3-light-2: hsl(28, 16%, 77%);
+}
+
+.calculator__show {
+  text-align: right;
+}
+
+html[data-theme=col2] {
+  --bg-col-1: hsl(0, 0%, 90%);
+  --bg-col-2: hsl(0, 5%, 81%);
+  --bg-col-3: hsl(0, 0%, 93%);
+  --tx-col1: hsl(60, 10%, 19%);
+  --tx-col2: hsl(0, 0%, 100%);
+  --tx-col3: hsl(0, 0%, 100%);
+  --tx-col4: hsl(60, 10%, 19%);
+  --key1-col-1: hsl(185, 42%, 37%);
+  --key1-col-2: hsl(185, 58%, 25%);
+  --key1-light-1: hsl(185, 42%, 49%);
+  --key1-light-2: hsl(185, 58%, 37%);
+  --key2-col-1: hsl(25, 98%, 40%);
+  --key2-col-2: hsl(25, 99%, 27%);
+  --key2-light-1: hsl(25, 98%, 52%);
+  --key2-light-2: hsl(25, 99%, 39%);
+  --key3-col-1: hsl(45, 7%, 89%);
+  --key3-col-2: hsl(35, 11%, 61%);
+  --key3-light-1: hsl(45, 7%, 100%);
+  --key3-light-2: hsl(35, 11%, 73%);
+}
+
+html[data-theme=col3] {
+  --bg-col-1: hsl(268, 75%, 9%);
+  --bg-col-2: hsl(268, 71%, 12%);
+  --bg-col-3: hsl(268, 71%, 12%);
+  --tx-col1: hsl(52, 100%, 62%);
+  --tx-col2: hsl(52, 100%, 62%);
+  --tx-col3: hsl(198, 20%, 13%);
+  --tx-col4: hsl(52, 100%, 62%);
+  --key1-col-1: hsl(281, 89%, 26%);
+  --key1-col-2: hsl(285, 91%, 52%);
+  --key1-light-1: hsl(281, 89%, 38%);
+  --key1-light-2: hsl(285, 91%, 64%);
+  --key2-col-1: hsl(176, 100%, 44%);
+  --key2-col-2: hsl(177, 92%, 70%);
+  --key2-light-1: hsl(176, 100%, 56%);
+  --key2-light-2: hsl(177, 92%, 82%);
+  --key3-col-1: hsl(268, 47%, 21%);
+  --key3-col-2: hsl(290, 70%, 36%);
+  --key3-light-1: hsl(268, 47%, 33%);
+  --key3-light-2: hsl(290, 70%, 48%);
+}
+
+.content {
+  counter-reset: themes;
+  transition: background-color;
+  background-color: var(--bg-col-1);
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 450px) {
+  .content {
+    align-items: start;
+  }
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.head__tittle {
+  font-size: 0.96875rem;
+  padding: 0px 0.25rem;
+  color: var(--tx-col4);
+}
+
+.calculator {
+  width: min(542px, 87%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.calculator__head {
+  margin-bottom: 0.25rem;
+}
+.calculator__buttons {
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
+  row-gap: 0.875rem;
+  padding: 1.125rem 1rem;
+  margin: 0.625rem 0;
+}
+@media (max-width: 450px) {
+  .calculator__buttons {
+    -moz-column-gap: 0.4375rem;
+         column-gap: 0.4375rem;
+    row-gap: 0.4375rem;
+    padding: 0.75rem 0.75rem;
+  }
+}
+.calculator__output {
+  text-align: right;
+  background-color: var(--bg-col-3);
+  padding: 1rem 1rem;
+  border-radius: 10px;
+}
+@media (max-width: 450px) {
+  .calculator__output {
+    padding: 0.75rem 0.75rem;
+  }
+}
+.calculator__slider-box {
+  width: 140px;
+}
+
+.forms {
+  width: 100%;
+  text-align: right;
+  background-color: var(--bg-col-3);
+  color: var(--tx-col4);
+}
+
+.output__text {
+  font-size: 1.6875rem;
+}
+@media (max-width: 450px) {
+  .output__text {
+    font-size: 1.25rem;
+  }
+}
+.output__show {
+  font-size: 0.625rem;
+}
+@media (max-width: 450px) {
+  .output__show {
+    font-size: 0.4375rem;
+  }
+}
+
+.slider-box {
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.slider-box__text {
+  letter-spacing: 1px;
+  font-size: 0.375rem;
+  color: var(--tx-col4);
+}
+
+.slider {
+  background-color: var(--bg-col-2);
+  display: flex;
+  justify-content: space-between;
+  width: 70px;
+  position: relative;
+  height: 100%;
+  border-radius: 50px;
+  padding: 0px 0.1875rem;
+}
+.slider__button {
+  height: 100%;
+  width: 33.3333333333%;
+  position: relative;
+  counter-increment: themes;
+}
+.slider__button:hover {
+  cursor: pointer;
+}
+.slider__button::after {
+  display: inline;
+  font-size: 0.4375rem;
+  content: counter(themes);
+  top: -80%;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  color: var(--tx-col4);
+}
+.slider__circle {
+  background-color: var(--key2-col-1);
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  height: 60%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  transition: left 0.2s ease-in-out;
+}
+.slider__circle:hover {
+  cursor: pointer;
+  background-color: makeLighter(hsl(6, 63%, 50%));
+}
+
+.buttons {
+  display: grid;
+  border-radius: 10px;
+  grid-template-columns: repeat(4, minmax(0px, 1fr));
+  grid-template-rows: repeat(5, 1fr);
+  background-color: var(--bg-col-2);
+  row-gap: 0.875rem;
+}
+.buttons__item {
+  color: var(--tx-col1);
+  position: relative;
+  text-align: center;
+  font-size: 1.25rem;
+  background-color: var(--key3-col-1);
+  box-shadow: 0px 4px var(--key3-col-2);
+  border-radius: 10px;
+  padding: 0.3125rem 0px 0.125rem;
+  transition: background-color 0.1s;
+}
+@media (max-width: 450px) {
+  .buttons__item {
+    font-size: 1rem;
+    padding: 0.46875rem 0px 0.34375rem;
+  }
+}
+.buttons__item:hover {
+  background-color: var(--key3-light-1);
+  box-shadow: 0px 4px var(--key3-light-2);
+  cursor: pointer;
+}
+.buttons__item:active {
+  top: 4px;
+  box-shadow: none !important;
+}
+.buttons__item--large {
+  grid-column: span 2;
+}
+.buttons__item--small-text {
+  font-size: 0.84375rem;
+}
+@media (max-width: 450px) {
+  .buttons__item--small-text {
+    font-size: 0.625rem;
+  }
+}
+.buttons__item--theme-2 {
+  color: var(--tx-col2);
+  background-color: var(--key1-col-1);
+  box-shadow: 0px 5px var(--key1-col-2);
+}
+.buttons__item--theme-2:hover {
+  background-color: var(--key1-light-1);
+  box-shadow: 0px 5px var(--key1-light-2);
+}
+.buttons__item--theme-3 {
+  color: var(--tx-col3);
+  background-color: var(--key2-col-1);
+  box-shadow: 0px 5px var(--key2-col-2);
+}
+.buttons__item--theme-3:hover {
+  background-color: var(--key2-light-1);
+  box-shadow: 0px 5px var(--key2-light-2);
+}/*# sourceMappingURL=styles.css.map */
