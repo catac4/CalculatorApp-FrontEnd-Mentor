@@ -1,0 +1,18 @@
+@mixin forCell(){
+    @media (max-width: 450px) {
+        @content;
+    }
+}
+
+$Soft-blue: hsl(215, 51%, 70%);
+$Cyan: hsl(178, 100%, 50%);
+$Very-dark-blue : #0D1A2D; //(main BG)
+$Very-dark-blue-2: hsl(216, 50%, 16%); //(card BG)
+$Very-dark-blue-3 : hsl(215, 32%, 27%); //(line)
+$White: hsl(0, 0%, 100%);
+$Font-size: 18px; //(paragraph)
+$Weights: (
+    "small": 300,
+    "medium": 400,
+    "large": 600
+) 
