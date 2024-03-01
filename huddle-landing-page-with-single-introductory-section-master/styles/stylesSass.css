@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  font-family: "Poppins", sans-serif;
+}
+@media (max-width: 660px) {
+  * {
+    font-size: 10px;
+  }
+}
+@media (max-width: 350px) {
+  * {
+    font-size: 7px;
+  }
+}
+
+body {
+  min-height: 100vh;
+  background-color: hsl(257, 40%, 49%);
+  background-image: url("../images/bg-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 1400px) {
+  body {
+    background-image: url("../images/bg-mobile.svg");
+    background-size: contain;
+    align-items: start;
+  }
+}
+
+.header {
+  margin: 2.75rem 0 3.34375rem;
+}
+.header__img {
+  width: 214px;
+  height: 53px;
+}
+@media (max-width: 1400px) {
+  .header__img {
+    width: 258px;
+    height: auto;
+  }
+}
+@media (max-width: 660px) {
+  .header__img {
+    width: 50%;
+    height: auto;
+  }
+}
+@media (max-width: 1400px) {
+  .header {
+    margin: 3.96875rem -0.15625rem 5.46875rem;
+  }
+}
+@media (max-width: 660px) {
+  .header {
+    margin: 3.96875rem -0.28125rem 2.03125rem;
+  }
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  padding: 1.84375rem 0 1.2875rem;
+}
+@media (max-width: 1400px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.84375rem 0 8rem;
+  }
+}
+@media (max-width: 660px) {
+  .content {
+    padding: 1.84375rem 0 5.9375rem;
+  }
+}
+.content__img {
+  box-sizing: content-box;
+  padding-left: 0.25rem;
+  padding-right: 3.3125rem;
+}
+@media (max-width: 1400px) {
+  .content__img {
+    width: 603px;
+    height: 429px;
+    padding-right: 3.8px;
+  }
+}
+@media (max-width: 660px) {
+  .content__img {
+    width: 100%;
+    height: auto;
+  }
+}
+.content__information {
+  margin-top: 2.6625rem;
+  padding-right: 1.375rem;
+}
+@media (max-width: 1400px) {
+  .content__information {
+    margin-top: 7.5rem;
+    padding-right: 0;
+  }
+}
+@media (max-width: 660px) {
+  .content__information {
+    margin-top: 2.4125rem;
+  }
+}
+.content__tittle {
+  color: white;
+  font-size: 2.475rem;
+  margin-top: 0;
+  margin-bottom: 1.29375rem;
+  font-weight: 600;
+  line-height: 3.75rem;
+}
+@media (max-width: 1400px) {
+  .content__tittle {
+    line-height: 4.5rem;
+    font-size: 2.98125rem;
+    margin-bottom: 1.66875rem;
+  }
+}
+.content__description {
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.6875rem;
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 1400px) {
+  .content__description {
+    line-height: 3rem;
+    font-size: 2rem;
+    margin-bottom: 3.09375rem;
+  }
+}
+.content__button {
+  box-shadow: 0px 4px 20px -9px black;
+  color: hsl(257, 40%, 49%);
+  border-radius: 50px;
+  background-color: white;
+  padding: 1.03125rem 4rem 1.15625rem;
+  font-size: 1.125rem;
+  font-weight: 400;
+  transition: background-color 0.1s, color 0.1s;
+}
+@media (max-width: 1400px) {
+  .content__button {
+    padding: 1.71875rem 9.41875rem 1.5rem;
+    font-size: 1.53125rem;
+    letter-spacing: 2;
+  }
+}
+.content__button:hover {
+  cursor: pointer;
+  background-color: hsl(300, 69%, 71%);
+  color: white;
+}
+
+.wrapper {
+  margin: 0 4.375rem;
+  width: 1300px;
+}
+@media (max-width: 660px) {
+  .wrapper {
+    margin: 0 3.125rem;
+  }
+}
+
+.contact {
+  display: flex;
+  justify-content: end;
+  margin: 0 0.1375rem 1.875rem;
+}
+@media (max-width: 1400px) {
+  .contact {
+    justify-content: center;
+  }
+}
+.contact__social {
+  margin: 0 0.5rem;
+  border-radius: 50%;
+  border: 1px solid white;
+  color: white;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.09375rem;
+}
+@media (max-width: 1400px) {
+  .contact__social {
+    width: 3.40625rem;
+    height: 3.40625rem;
+    font-size: 1.71875rem;
+    margin: 0 0.66875rem;
+  }
+}/*# sourceMappingURL=stylesSass.css.map */
