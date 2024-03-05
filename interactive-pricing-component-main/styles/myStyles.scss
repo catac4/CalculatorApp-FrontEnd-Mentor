@@ -1,0 +1,562 @@
+@use "variables" as v;
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+@function deleteType($val){
+    @return ($val)/($val*0 + 1);
+}
+
+@function toRem($val){
+    @return #{(deleteType($val))/(deleteType(v.$Font-size))}rem;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    font-size: v.$Font-size;
+    box-sizing: border-box;
+    font-family: "Manrope", sans-serif;
+    text-decoration: none;
+    list-style: none;
+    @include v.forCell1(){
+        font-size: 12px;
+    }
+    @include v.forCell2(){
+        font-size: 8px;
+    }
+}
+
+
+.wrapper{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: v.$Very-Pale-Blue;
+    background-image: url("../images/bg-pattern.svg");
+    background-repeat: no-repeat;
+    background-size: 100% 56%;
+    @include v.forTablet(){
+        background-size: auto 50%;
+    }
+}
+
+.pricer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: min(542px,95%);
+    @include v.forTablet(){
+        width: min(654px,95%);;
+    }
+    &__header{
+        position: relative;
+        height: 146px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: toRem(60px);
+        justify-content: center;
+        @include v.forTablet(){
+            margin-bottom: toRem(140px);
+        }
+        @include v.forCell1{
+            margin-bottom: toRem(100px);
+        }
+        @include v.forCell2{
+            margin-bottom: toRem(60px);
+        }
+    }
+    &__img{
+        position: absolute;
+        height: 146px;
+        width: 146px;
+        z-index: 1;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 7px;
+        @include v.forTablet{
+            width: 292px;
+            height: auto;
+            top: -64px;
+        }
+        @include v.forCell1{
+            width: 240px;
+            top: -54px;
+        }   
+        @include v.forCell2{
+            width: 180px;
+            top: -26px;
+        }
+    }
+    &__main{
+        padding: toRem(36px) toRem(48px) toRem(40px);
+        @include v.forTablet{
+            padding: toRem(72px) toRem(48px) toRem(76px);    
+        }
+    }
+    &__tittle{
+        z-index: 2;
+        font-size: toRem(28.1px);
+        font-weight: map-get(v.$Weights,'large');
+        color: v.$Dark-Desaturated-Blue;
+        margin: toRem(16px) toRem(0);
+        @include v.forTablet(){
+            font-size: toRem(40.1px);
+            margin: toRem(19px) toRem(0);
+        }
+    }
+    &__subtittle{
+        z-index: 2;
+        font-size: toRem(15.1px);
+        font-weight: map-get(v.$Weights,'small');
+        color: v.$Grayish-Blue;
+        @include v.forTablet(){
+            font-size: toRem(26.2px);
+            line-height: toRem(46px);
+            width: 350px;
+            margin: auto;
+        }
+        @include v.forCell1(){
+            width: auto;
+            margin: 0;
+            padding: toRem(0px) toRem(80px);
+        }
+    }
+    &__content{
+        width: 100%;
+        background-color: v.$White;
+        background-color: v.$White;
+        margin-bottom: toRem(77.5px);
+        border-radius: 10px;
+        box-shadow: 0px 10px 45px -11px v.$Light-Grayish-Blue;
+        @include v.forTablet(){
+            margin-bottom: toRem(0px);   
+        }
+    }
+    &__info{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,1fr);
+        row-gap: toRem(35px);;
+        @include v.forTablet(){
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: toRem(76px);
+        }
+    }
+    &__views{
+        display: flex;
+        align-items: center;
+        font-size: toRem(13.8px);
+        font-weight: map-get(v.$Weights,'large');
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: v.$Grayish-Blue;
+        margin-left: toRem(-1.5px);
+        @include v.forTablet{
+            font-size: toRem(24px);
+            letter-spacing: 0.165em;
+            margin-bottom: toRem(40px);
+            margin-left: 0px;
+        }
+    }
+    &__value{
+        font-size: toRem(40px);
+        font-weight: map-get(v.$Weights,'large');
+        letter-spacing: -0.023em;
+        color: v.$Dark-Desaturated-Blue;    
+        display: flex;
+        align-items: center;
+        margin-right: toRem(8px);
+        margin-bottom: toRem(0.50px);
+        @include v.forTablet{
+            font-size: toRem(64px);
+            margin-right: toRem(19px);
+            letter-spacing: -0.024em;
+        }
+    }
+    &__time-mode{
+        margin-right: toRem(1.5px);
+        font-weight: map-get(v.$Weights,'small');
+        letter-spacing: 0;
+        font-size: toRem(16.1px);
+        color: v.$Grayish-Blue;
+        @include v.forTablet{
+            font-size: toRem(28px);   
+        }
+    }
+    &__footer{
+        padding: toRem(33px) toRem(48px) toRem(34px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include v.forTablet(){
+            padding: toRem(51px) toRem(48px) toRem(64px);
+            text-align: center;
+            flex-direction: column;
+        } 
+    }
+    &__button{
+        padding: toRem(13.5px) toRem(46px);
+        margin-right: toRem(-2.5px);
+        @include v.forTablet(){
+            margin-right: 0;
+            padding: toRem(27px) toRem(92.5px);
+        }
+    }
+    &__range{
+        grid-column: span 2;
+        width: 100%;
+        margin-bottom: toRem(56px);
+        @include v.forTablet(){
+            order: 2;
+            margin-bottom: 0px;
+        }
+    }
+    &__configuration{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__cost{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        @include v.forTablet(){
+            order: 3;
+            margin-top: toRem(44px);
+        }
+    }
+    &__type{
+        display: flex;
+        align-items: center;
+        margin-left: toRem(72px);
+        @include v.forTablet(){
+            margin-left: toRem(18px);
+        }
+    }
+    &__time{
+        text-align: center;
+        letter-spacing: -0.007em;
+        font-kerning: none;
+        font-size: toRem(12.2px);
+        font-weight: map-get(v.$Weights,'small');
+        color: v.$Grayish-Blue;
+        margin: 0 toRem(16px) toRem(3px);
+        @include v.forTablet(){
+            font-size: toRem(24px);
+            letter-spacing: 0.01em;
+            margin: 0 toRem(24px) toRem(3px);
+        }
+        &--yearly{
+            
+            font-size: toRem(12.2px);
+            margin-left: toRem(18px);
+            margin-right: toRem(8px);
+            @include v.forTablet(){
+                font-size: toRem(24.4px);
+                letter-spacing: 0;
+                margin-right: toRem(9px);
+            }
+        }
+    }
+    &__discount{
+        letter-spacing: 0.013em;
+        width: 80px;
+        height: 18px;
+        font-size: toRem(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: map-get(v.$Weights,'small');
+        color: v.$Light-Red;
+        border-radius: 100px;
+        background-color: v.$Light-Grayish-Red;
+        margin-bottom: toRem(1px);
+        @include v.forTablet(){
+            text-indent: -9999px;
+            line-height: 0;  
+            width: 78px;
+            height: 38px;
+            margin-right: toRem(-23px);
+        }
+        @include v.forCell2{
+            width: 38px;
+            height: 28px;
+        }
+        &:after{
+            @include v.forTablet(){
+                text-indent: 0;
+                content: "-25%";
+                font-size: toRem(21px);
+                letter-spacing: 0.01em;
+                
+            }
+        }
+    }
+    &__item{
+        &:not(:last-child){
+            margin-bottom: toRem(11.5px);
+            @include v.forTablet(){
+                margin-bottom: toRem(26px);
+            }
+        }
+    }
+    &__list{
+        @include v.forTablet(){
+            margin-bottom: toRem(67px);
+        }
+    }
+    &__changer{
+        flex-shrink: 0;
+        width: 42px;
+        height: 22px;
+        position: relative;
+        border-radius: 50px;
+        background-color: v.$Light-Grayish-Blue;
+        &:hover{
+            cursor: pointer;
+            background-color: v.$Soft-Cyan;
+        }
+        @include v.forTablet(){
+            width: 84px;
+            height: 44px;
+        }
+        @include v.forCell1{
+            width: 62px;
+            height: 32px;
+        }
+        @include v.forCell2{
+            width: 46px;
+            height: 24px;
+        }
+    }
+    &__circle{
+        position: absolute;
+        width: 14px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: v.$White;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 4px;
+        transition: left 0.2s ease-in-out;
+        @include v.forTablet(){
+            width: 29px;
+        }
+        @include v.forCell1{
+            width: 21px;
+        }
+        @include v.forCell2{
+            width: 16px;
+        }
+    }
+}
+
+.list{
+    &__item{
+        letter-spacing: 0.003em;
+        font-size: toRem(12px);
+        font-weight: map-get(v.$Weights,'small');
+        color: v.$Grayish-Blue;
+        &::before{
+            vertical-align: middle;
+            content: url("../images/icon-check.svg");
+            display: inline-block;
+            margin-right: toRem(15px);
+            @include v.forTablet(){
+                content: ' ';
+                margin-right: toRem(32px);
+                background-image: url("../images/icon-check.svg"); 
+                background-size: 15px 12px;
+                width: 15px;
+                height: 12px;
+            }
+        }
+        @include v.forTablet(){
+            font-size: toRem(24px);
+            letter-spacing: 0.002em;
+            
+        }
+    }
+    
+}
+
+hr{
+    border: 1px solid #EFEFF0;
+    width: 100%;
+    @include v.forTablet(){
+        border: 2px solid #EFEFF0;
+    }
+}
+
+.button{
+    font-weight: map-get(v.$Weights,'large');
+    border: none;
+    outline: none;
+    color: v.$Pale-Blue;
+    background-color: v.$Dark-Desaturated-Blue;
+    border-radius: 50px;
+    font-size: toRem(12.3px);
+    letter-spacing: -0.012em;
+    &:hover{
+        color: v.$White;
+        cursor: pointer;
+    }
+    @include v.forTablet(){
+        font-size: toRem(24.5px);
+        letter-spacing: 0.01em;
+        display: block;
+
+    }
+}
+
+.changer{
+    display: flex;
+    &__button{
+        flex: 1;
+    }
+}
+
+.range{
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    border-radius: 50px;
+    background-image: linear-gradient(90deg,v.$Soft-Cyan 50%, #EBF0F9 50%);
+    @include v.forTablet{
+        height: 16px;       
+    }
+    @include v.forCell2{
+        height: 10px;
+    }
+   &::-webkit-slider-runnable-track{
+    height: 8px;
+    border-radius: 50px;
+        @include v.forTablet{
+            height: 16px;       
+        }
+        @include v.forCell2{
+            height: 10px;
+        }
+   }
+   &::-ms-track{
+    height: 8px;
+    border-radius: 50px;
+        @include v.forTablet{
+            height: 16px;       
+        }
+        @include v.forCell2{
+            height: 10px;
+        }
+   }
+
+   &::-webkit-slider-thumb{
+    margin-top: -16px;
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: v.$Strong-Cyan;
+    border: none;
+    background-image: url('../images/icon-slider.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 12px 20px 5px v.$Soft-Cyan;
+        &:hover{
+            background-color: hsl(174, 85%, 51%);
+            color: hsl(174, 85%, 51%);
+            cursor:pointer;
+        }
+        &:active{
+            background-color: hsl(174, 84%, 38%);
+            cursor: grab;
+        }
+        @include v.forTablet(){
+            width: 80px;
+            height: 80px;
+            background-size: 46px 28px;
+        }
+        @include v.forCell1(){
+            width: 65px;
+            height: 65px;
+            background-size: 36px 28px;
+        }
+        @include v.forCell2(){
+            width: 40px;
+            height: 40px;
+            background-size: initial;
+        }
+   }
+   &::-ms-thumb{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: v.$Strong-Cyan;
+    border: none;
+    background-image: url('../images/icon-slider.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 12px 20px 5px v.$Soft-Cyan;
+        &:hover{
+            background-color: hsl(174, 85%, 51%);
+            cursor:pointer;
+        }
+        &:active{
+            background-color: hsl(174, 84%, 38%);
+            cursor: grab;
+        }
+        @include v.forTablet(){
+            width: 80px;
+            height: 80px;
+            background-size: 46px 28px;
+        }
+        @include v.forCell1(){
+            width: 65px;
+            height: 65px;
+            background-size: 36px 28px;
+        }
+        @include v.forCell2(){
+            width: 40px;
+            height: 40px;
+            background-size: initial;
+        }
+   }
+   &::-moz-range-thumb{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: v.$Strong-Cyan;
+    border: none;
+    background-image: url('../images/icon-slider.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 12px 20px 5px v.$Soft-Cyan;
+        &:hover{
+            background-color: hsl(174, 85%, 51%);
+            cursor:pointer;
+        }
+        &:active{
+            background-color: hsl(174, 84%, 38%);
+            cursor: grab;
+        }
+    @include v.forTablet(){
+        width: 80px;
+        height: 80px;
+        background-size: 46px 28px;
+    }
+    @include v.forCell1(){
+        width: 65px;
+        height: 65px;
+        background-size: 36px 28px;
+    }
+    @include v.forCell2(){
+        width: 40px;
+        height: 40px;
+        background-size: initial;
+    }
+   }
+  
+    
+}
