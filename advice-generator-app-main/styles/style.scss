@@ -1,0 +1,117 @@
+@use "variables" as v;
+
+@function deleteType($val){
+    @return $val/($val*0 +1);
+}
+
+@function toRem($val){
+    @return #{deleteType($val)/deleteType(v.$Font-size)}rem;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    font-size: v.$Font-size;
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+}
+
+
+.content{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: v.$Dark-Blue;
+    @include v.forTablet{
+        align-items: start;
+    }
+}
+
+.advicer{
+    
+    position: relative;
+    background-color: v.$Dark-Grayish-Blue;
+    width: min(540px,91.46%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    padding: toRem(49px) toRem(48px) toRem(72px);
+    margin-bottom: 32px;
+    @include v.forTablet(){
+        padding: toRem(40px) toRem(24px) toRem(65px);
+        margin-top: toRem(121px);
+        margin-bottom: 0;
+        border-radius: 10px;
+    }
+    &__number{
+        text-align: center;
+        font-size: toRem(13.5px);
+        letter-spacing: 0.285em;
+        color: v.$Neon-Green;
+        margin: 0;
+        @include v.forTablet(){
+            font-size: toRem(11px);
+            letter-spacing: 0.32em;
+        }
+    }
+    &__img{
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    &__text{
+        text-align: center;
+        letter-spacing: -0.01em;
+        color: v.$Light-Cyan;
+        margin-top: toRem(25px);
+        margin-bottom: toRem(40px);
+        line-height: toRem(38px);
+        @include v.forTablet{
+            font-size: toRem(24px);
+            letter-spacing: -0.011em;
+            line-height: toRem(33px);
+            margin-bottom: toRem(24px);
+            margin-top: toRem(25px);
+        }
+    }
+    &__hr{
+        @include v.forTablet{
+            content: url('../images/pattern-divider-mobile.svg');
+        }
+    }
+    &__button{
+        position: absolute;
+        top: calc(100% - 32px);
+    }
+}
+
+.button{
+    background-image: url('../images/icon-dice.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px;
+    width: 64px;
+    aspect-ratio: 1;
+    background-color: v.$Neon-Green;
+    border-radius: 50%;
+    transition: box-shadow 0.2s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    &:hover{
+        cursor: pointer;
+        box-shadow: 0px 0px 20px 5px v.$Neon-Green;
+        transform: rotate(-135deg);
+    }
+    &:active{
+        width: 60px;
+        top: calc(100% - 30px);
+        background-size: 22px
+    }
+}

@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  font-size: 28px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+}
+
+.content {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(218, 23%, 16%);
+}
+@media (max-width: 430px) {
+  .content {
+    align-items: start;
+  }
+}
+
+.advicer {
+  position: relative;
+  background-color: hsl(217, 19%, 24%);
+  width: min(540px, 91.46%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  padding: 1.75rem 1.7142857143rem 2.5714285714rem;
+  margin-bottom: 32px;
+}
+@media (max-width: 430px) {
+  .advicer {
+    padding: 1.4285714286rem 0.8571428571rem 2.3214285714rem;
+    margin-top: 4.3214285714rem;
+    margin-bottom: 0;
+    border-radius: 10px;
+  }
+}
+.advicer__number {
+  text-align: center;
+  font-size: 0.4821428571rem;
+  letter-spacing: 0.285em;
+  color: hsl(150, 100%, 66%);
+  margin: 0;
+}
+@media (max-width: 430px) {
+  .advicer__number {
+    font-size: 0.3928571429rem;
+    letter-spacing: 0.32em;
+  }
+}
+.advicer__img {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.advicer__text {
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: hsl(193, 38%, 86%);
+  margin-top: 0.8928571429rem;
+  margin-bottom: 1.4285714286rem;
+  line-height: 1.3571428571rem;
+}
+@media (max-width: 430px) {
+  .advicer__text {
+    font-size: 0.8571428571rem;
+    letter-spacing: -0.011em;
+    line-height: 1.1785714286rem;
+    margin-bottom: 0.8571428571rem;
+    margin-top: 0.8928571429rem;
+  }
+}
+@media (max-width: 430px) {
+  .advicer__hr {
+    content: url("../images/pattern-divider-mobile.svg");
+  }
+}
+.advicer__button {
+  position: absolute;
+  top: calc(100% - 32px);
+}
+
+.button {
+  background-image: url("../images/icon-dice.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px;
+  width: 64px;
+  aspect-ratio: 1;
+  background-color: hsl(150, 100%, 66%);
+  border-radius: 50%;
+  transition: box-shadow 0.2s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+.button:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 20px 5px hsl(150, 100%, 66%);
+  transform: rotate(-135deg);
+}
+.button:active {
+  width: 60px;
+  top: calc(100% - 30px);
+  background-size: 22px;
+}/*# sourceMappingURL=style.css.map */
